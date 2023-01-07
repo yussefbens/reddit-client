@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    background: black;
+    color: white;
+    padding: .5em 1.5em;
+    margin: 0;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 4px solid black;
+    button {
+        margin: 1em;
+    }
+}
+.app-container {
+    margin-bottom: 60px;
+}

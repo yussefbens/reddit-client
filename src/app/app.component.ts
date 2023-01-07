@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RedditApiService } from './shared/reddit/reddit-api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'reddit-webapp';
+
+  constructor(
+    private api: RedditApiService
+  ) {}
+
+  ngOnInit() {
+    console.log()
+  }
 }
