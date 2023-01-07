@@ -1,0 +1,18 @@
+<ul>
+  <div class="list-container" *ngFor="let post of posts">
+    <li>
+      <div class="thumbnail-container" [ngSwitch]="post.data.thumbnail">
+        <em *ngSwitchCase="'nsfw'">nsfw</em>
+        <em *ngSwitchCase="'self'">self</em>
+        <em *ngSwitchCase="'default'">default</em>
+        <img *ngSwitchDefault [src]="post.data.thumbnail" />
+      </div>
+      <a [routerLink]="post.data.permalink"><b>{{post.data.title}}</b></a>
+      <p>by <em>{{post.data.author}}</em> on <em>{{post.data.created*1000 | date}}</em></p>
+      <button>{{post.data.num_comments}} comments</button>
+      <p>score <em>{{post.data.score}}</em></p>
+      <a [routerLink]="'/'+post.data.subreddit_name_prefixed"><p><em>{{post.data.subreddit_name_prefixed}}</em></p></a>
+    </li>
+    <hr>
+  </div>
+</ul>

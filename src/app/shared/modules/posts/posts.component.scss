@@ -1,0 +1,19 @@
+ul {
+    list-style: none;
+    padding: 0;
+    li {
+        text-align: center;
+    }
+    .thumbnail-container {
+        margin: .5em 0;
+    }
+    img {
+        width: 150px;
+        display: block;
+        text-align: center;
+        margin: .5em auto;
+    }
+    p {
+        display: block;
+    }
+}

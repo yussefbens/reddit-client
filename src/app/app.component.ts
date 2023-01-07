@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RedditApiService } from './shared/reddit/reddit-api.service';
+import { RedditApiService } from './shared/services/reddit/reddit-api.service';
 
 @Component({
   selector: 'app-root',

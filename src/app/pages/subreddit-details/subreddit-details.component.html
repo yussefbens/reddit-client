@@ -1,0 +1,27 @@
+<div class="subreddit-details-container" *ngIf="subreddit">
+  <img [src]="subreddit.icon_img">
+  <p>{{subreddit.display_name}}</p>
+  <p>{{subreddit.public_description}}</p>
+  <p>{{subreddit.subscribers}} Members, {{subreddit.accounts_active}} Active</p>
+  <hr>
+  <h1>POSTS</h1>
+  <select name="sort" [(ngModel)]="sort" (change)="onSortChange()">
+    <option value="hot">Hot</option>
+    <option value="new">New</option>
+    <option value="top">Top</option>
+  </select>
+  <select name="time" *ngIf="sort==='top'" [(ngModel)]="time" (change)="onTimeChange()">
+    <option value="hour">Now</option>
+    <option value="day">Today</option>
+    <option value="week">This Week</option>
+    <option value="month">This Month</option>
+    <option value="year">This Year</option>
+    <option value="all">All Time</option>
+  </select>
+  <hr>
+  <app-posts *ngIf="posts" [posts]="posts"></app-posts>
+  <button *ngIf="!loading" (click)="loadMore()">Load more</button>
+</div>
+<div class="loading-container" *ngIf="loading">
+  <p>Loading...</p>
+</div>

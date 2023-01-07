@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RedditApiService } from 'src/app/shared/reddit/reddit-api.service';
+import { RedditApiService } from 'src/app/shared/services/reddit/reddit-api.service';
 
 @Component({
   selector: 'app-home',

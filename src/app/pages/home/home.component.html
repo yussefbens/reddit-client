@@ -1,24 +1,6 @@
 <h1>FRONTPAGE</h1>
 <hr>
-<ul *ngIf="posts">
-  <div class="list-container" *ngFor="let post of posts">
-    <li>
-      <div class="thumbnail-container" [ngSwitch]="post.data.thumbnail">
-        <em *ngSwitchCase="'nsfw'">nsfw</em>
-        <em *ngSwitchCase="'self'">self</em>
-        <em *ngSwitchCase="'default'">default</em>
-        <img *ngSwitchDefault [src]="post.data.thumbnail" />
-      </div>
-      <b>{{post.data.title}}</b>
-      <p>by <em>{{post.data.author}}</em> on <em>{{post.data.created*1000 | date}}</em></p>
-      <button>{{post.data.num_comments}} comments</button>
-      <p>score <em>{{post.data.score}}</em></p>
-      <p><em>/r/{{post.data.subreddit}}</em></p>
-      
-    </li>
-    <hr>
-  </div>
-</ul>
+<app-posts *ngIf="posts" [posts]="posts"></app-posts>
 <button *ngIf="!loading" (click)="loadMore()">Load more</button>
 <div class="loading-container" *ngIf="loading">
   <p>Loading...</p>
