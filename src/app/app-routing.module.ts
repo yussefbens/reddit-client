@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'subreddits', 
+    loadChildren: () => import('./pages/subreddits/subreddits.module').then(m => m.SubredditsModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

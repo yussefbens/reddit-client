@@ -1,0 +1,13 @@
+<h1>SUBREDDITS</h1>
+<hr>
+<ul *ngIf="subreddits">
+    <li *ngFor="let subreddit of subreddits">
+        <a [routerLink]="subreddit.data.url"><p><b>/r/{{subreddit.data.display_name}}</b></p></a>
+        <div class="description-container" [innerHTML]="subreddit.data.description"></div>
+        <p>subscribers: <em>{{subreddit.data.subscribers}}</em></p>
+    </li>
+</ul>
+<button *ngIf="!loading" (click)="loadMore()">Load more</button>
+<div class="loading-container" *ngIf="loading">
+    <p>Loading...</p>
+</div>

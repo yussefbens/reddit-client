@@ -21,4 +21,13 @@ export class RedditApiService {
     return this.http.get(url, {params: params});
   }
 
+  getSubreddits(limit?: number, before?: string, after?: string) {
+    let url = "http://www.reddit.com/subreddits.json";
+    let params = new HttpParams();
+    if (limit) params = params.append('limit', limit);
+    if (before) params = params.append('before', before);
+    if (after) params = params.append('after', after);
+    return this.http.get(url, {params: params});
+  }
+
 }

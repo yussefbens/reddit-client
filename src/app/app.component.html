@@ -1,7 +1,10 @@
 <div class="app-container">
-    <h1>REDDIT CLIENT</h1>
+    <a [routerLink]="'/'">
+        <h1>REDDIT CLIENT</h1>
+    </a>
     <router-outlet></router-outlet>
     <footer>
-        <button>Subreddits</button>
+        <a [routerLink]="'/home'">Frontpage</a>
+        <a [routerLink]="'/subreddits'">Subreddits</a>
     </footer>
 </div>
