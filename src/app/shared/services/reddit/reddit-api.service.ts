@@ -6,9 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class RedditApiService {
 
-  appId = "Qp-mcvgVRj9Ne2jng72YrQ";
-  appSecret = "VQMsR4LTKHEGwvG-eT7qy5CJ7-OETg";
-
   constructor(private http: HttpClient) {}
 
   getPostDetail(subreddit: string, postId: string) {
