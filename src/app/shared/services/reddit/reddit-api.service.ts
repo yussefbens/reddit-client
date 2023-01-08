@@ -11,6 +11,11 @@ export class RedditApiService {
 
   constructor(private http: HttpClient) {}
 
+  getPostDetail(subreddit: string, postId: string) {
+    let url = "https://www.reddit.com/r/"+subreddit+'/comments/'+postId+'.json';
+    return this.http.get(url);
+  }
+
   getSubredditPosts(subreddit: string, limit?: number, before?: string, after?: string, sort?: string, time?: string) {
     let url = "https://www.reddit.com/r/";
     url += subreddit+'.json';

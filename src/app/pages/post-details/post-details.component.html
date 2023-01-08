@@ -1,0 +1,42 @@
+<div class="post-details-container" *ngIf="postDetails">
+  <h2>{{postDetails.title}}</h2>
+  <img [src]="postDetails.thumbnail" alt="">
+  <p>score {{postDetails.score}}</p>
+  <p>author {{postDetails.author}}</p>
+  <p>created {{postDetails.created*1000 | date}}</p>
+  <hr>
+</div>
+<div class="post-comments-container" *ngIf="postComments">
+  <h3>COMMENTS</h3>
+  <hr>
+  <ul>
+    <li *ngFor="let comment of postComments">
+      <em>{{comment.data.author}} · {{comment.data.created*1000 | date}}</em>
+      <p>{{comment.data.body}}</p>
+      <div class="replies-container">
+        <ul>
+          <ng-container *ngTemplateOutlet="Recursion; context { list: comment.data?.replies?.data?.children}">
+          </ng-container>
+        </ul>
+      </div>
+      <hr>
+    </li>
+  </ul>
+</div>
+<div class="loading-container" *ngIf="loading">
+  <p>Loading...</p>
+</div>
+
+<ng-template #Recursion let-list="list">
+  <li *ngFor="let item of list">
+    <em>{{item.data.author}} · {{item.data.created*1000 | date}}</em>
+    <p>{{item.data.body}}</p>
+    <div class="replies-container">
+      <ul *ngIf="item.data?.replies?.data?.children?.length > 0">
+        <ng-container
+          *ngTemplateOutlet="Recursion; context:{ list: item.data?.replies?.data?.children }"
+        ></ng-container>
+      </ul>
+    </div>
+  </li>
+</ng-template>

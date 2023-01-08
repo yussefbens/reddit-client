@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/subreddit-details/subreddit-details.module').then(m => m.SubredditDetailsModule)
   },
   {
+    path: 'r/:subreddit/comments/:postId/:postTitle', 
+    loadChildren: () => import('./pages/post-details/post-details.module').then(m => m.PostDetailsModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
